@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Sesame
+Exec=/home/swapnesh/workspace/sesameserver/startup/startup_ubuntu/startup.bash
+Terminal=false
+Type=Application
+OnlyShowIn=GNOME;XFCE;
+X-GNOME-Autostart-enabled=true
+
