@@ -1,0 +1,8 @@
+od -- octal dump
+find <dir> -name "*${FILE_NAME}*.log" -mtime +150 -exec rm -f {} \;
+wc
+netstat -plten ->> it's old so use ss instead
+ps pmem - physical mem  
+vmstat - virtual mem 
+http://unix.stackexchange.com/questions/29791/bash-profile-not-sourced-when-running-su
+alias | sed 's/alias //g'
