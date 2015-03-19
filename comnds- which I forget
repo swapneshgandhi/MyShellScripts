@@ -6,3 +6,13 @@ ps pmem - physical mem
 vmstat - virtual mem 
 http://unix.stackexchange.com/questions/29791/bash-profile-not-sourced-when-running-su
 alias | sed 's/alias //g'
+
+special variables
+$0 - name of command/file being executed
+$1- $9 parameters
+$# - number of args
+$* - all the param
+$@ - all the param
+$? - return code of last cmnd
+$$ - pid of shell
+$! - pid of last bg process
