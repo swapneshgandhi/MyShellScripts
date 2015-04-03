@@ -6,6 +6,16 @@ ps pmem - physical mem
 vmstat - virtual mem 
 http://unix.stackexchange.com/questions/29791/bash-profile-not-sourced-when-running-su
 alias | sed 's/alias //g'
+uptime
+Drive space - how much free space is there?  --df -h
+CPU utilization - %time spent idle, waiting on IO, and running apps --top
+Memory/swap - how is memory being used? -- free -m
+Ports - What services are listening on what ports? -- netstat -pltn
+Processes - What programs are actually running on the server? -- pstree -paul
+SAR -r -- gives awesome statistics
+setuid and setgid (short for "set user ID upon execution" and "set group ID upon execution", respectively)[1] 
+are Unix access rights flags that allow users to run an executable with the permissions of the executable's owner
+or group respectively and to change behaviour in directories.
 
 special variables
 $0 - name of command/file being executed
