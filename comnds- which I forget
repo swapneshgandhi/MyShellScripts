@@ -17,6 +17,10 @@ setuid and setgid (short for "set user ID upon execution" and "set group ID upon
 are Unix access rights flags that allow users to run an executable with the permissions of the executable's owner
 or group respectively and to change behaviour in directories.
 
+
+find . -name "Cmake*" -exec grep version {} \;
+##to search for files with pattern cmake with keyword grep
+
 special variables
 $0 - name of command/file being executed
 $1- $9 parameters
