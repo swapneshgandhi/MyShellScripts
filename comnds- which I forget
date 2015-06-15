@@ -30,3 +30,8 @@ $@ - all the param
 $? - return code of last cmnd
 $$ - pid of shell
 $! - pid of last bg process
+
+#check each digit in the file, by first converting tab separated numbers into newline separated, so that
+#grep will go over each number separately, and check for exact match for '0' nad negate the return status
+#using ! so that we exit if there is '0' status cod will be 1.
+! (cat $hive_file_path/build_sanity_geo_results.log | awk '{gsub("\t","\n",$0); print;}' | grep ^0$ )
