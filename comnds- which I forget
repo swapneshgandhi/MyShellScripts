@@ -35,3 +35,9 @@ $! - pid of last bg process
 #grep will go over each number separately, and check for exact match for '0' nad negate the return status
 #using ! so that we exit if there is '0' status cod will be 1.
 ! (cat $hive_file_path/build_sanity_geo_results.log | awk '{gsub("\t","\n",$0); print;}' | grep ^0$ )
+
+IFS=","
+for v in $variable
+do
+   ... things with $v ...
+done
