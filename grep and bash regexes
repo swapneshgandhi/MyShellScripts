@@ -1,0 +1,57 @@
+#!/bin/bash -l	
+#parses apache benchmark outputs of the form without the pounds of course
+
+#Server Software:        nginx/1.4.7
+#Server Hostname:        logger-next-staging3.us-east-1.ooyala.com
+#Server Port:            80
+#
+#Document Path:          /verify?ts=1438977514272
+#Document Length:        2 bytes
+#
+#Concurrency Level:      144
+#Time taken for tests:   300.000 seconds
+#Complete requests:      3004497
+#Failed requests:        0
+#Write errors:           0
+#Total transferred:      670002831 bytes
+#HTML transferred:       6008994 bytes
+#Requests per second:    10014.99 [#/sec] (mean)
+#Time per request:       14.378 [ms] (mean)
+#Time per request:       0.100 [ms] (mean, across all concurrent requests)
+#Transfer rate:          2181.00 [Kbytes/sec] received
+#
+#Connection Times (ms)
+#              min  mean[+/-sd] median   max
+#Connect:        0    3   9.2      4    1006
+#Processing:     1   11   6.7      9    2211
+#Waiting:        1   11   6.7      8    2211
+#Total:          2   14  10.5     13    2213
+#
+#Percentage of the requests served within a certain time (ms)
+#  50%     13
+#  66%     16
+#  75%     17
+#  80%     17
+#  90%     20
+#  95%     23
+#  98%     27
+#  99%     31
+# 100%   2213 (longest request)
+
+
+
+rm all_results.txt
+
+for file in *.txt; do
+ throughput=`cat $file | grep 'Requests per second' | grep -Po [0-9.]+`
+ 
+if [[ `cat $file | grep 'Total:'` =~ Total:[' ']+[0-9.]+[' ']+([0-9.]+)[' ']+[0-9.]+[' ']+[0-9.]+[' ']+([0-9.]+) ]];then
+  max=${BASH_REMATCH[2]}
+  median=${BASH_REMATCH[1]}
+fi
+
+concurrency_level=`cat $file | grep 'Concurrency' | grep -Po [0-9]+`
+
+echo -e "$concurrency_level,$throughput,$median,$max" >> all_results.txt
+
+done
